@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/TuneStation/static/css/main.b17f1735.css",
+    "main.js": "/TuneStation/static/js/main.fc2f8078.js",
+    "static/js/787.21038b3b.chunk.js": "/TuneStation/static/js/787.21038b3b.chunk.js",
+    "index.html": "/TuneStation/index.html",
+    "main.b17f1735.css.map": "/TuneStation/static/css/main.b17f1735.css.map",
+    "main.fc2f8078.js.map": "/TuneStation/static/js/main.fc2f8078.js.map",
+    "787.21038b3b.chunk.js.map": "/TuneStation/static/js/787.21038b3b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b17f1735.css",
+    "static/js/main.fc2f8078.js"
+  ]
+}
