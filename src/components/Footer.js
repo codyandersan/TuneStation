@@ -2,9 +2,9 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer className="text-gray-400 bg-deep-900 body-font mt-auto">
+        <footer className="text-black dark:text-gray-400 bg-slate-100 dark:bg-deep-900 body-font mt-auto">
             <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-                <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                <a className="flex title-font font-medium items-center dark:text-white text-black mb-4 md:mb-0">
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                         stroke="currentColor" className="w-6 h-6">
@@ -14,10 +14,10 @@ function Footer() {
 
                     <span className="ml-3 text-xl">TuneStation</span>
                 </a>
-                <p className="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-0">
+                <p className="text-sm text-black dark:text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-0">
                     Built
                     with ♥ by
-                    <a href="https://github.com/codyandersan" className="text-gray-500 ml-1" target="_blank"
+                    <a href="https://github.com/codyandersan" className="text-gray-700 dark:text-gray-500 ml-1" target="_blank"
                         rel="noopener noreferrer">@codyandersan</a>
                 </p>
             </div>

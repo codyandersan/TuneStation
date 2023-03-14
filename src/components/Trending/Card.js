@@ -7,7 +7,7 @@ function Card(props) { // name, img, key (id) as props
                 <img className="hover:brightness-50 flex-shrink-0 rounded-lg w-screen h-56 object-cover object-center mb-4"
                     src={props.image} />
                 <div className="w-full">
-                    <h2 className="title-font font-medium text-lg text-white">{props.name}</h2>
+                    <h2 className="title-font font-medium text-lg dark:text-white text-black">{props.name.length > 26 ? props.name.substring(0, 27) + "..." : props.name}</h2>
 
                 </div>
             </div>

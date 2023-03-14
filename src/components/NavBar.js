@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-function NavBar() {
+
+
+function NavBar(props) { //toggleTheme
+
+    // useEffect(() => {
+    //     if (document.getElementById("dark_mode").checked) {
+    //         props.setTheme("dark")
+    //     }
+    //     else {
+    //         props.setLightTheme("")
+    //     }
+    // }) //will run always!
+
     return (
-        <header className="text-gray-400 bg-deep-900 body-font">
+        <header className="text-gray-700 dark:text-gray-400 bg-slate-100 dark:bg-deep-900 body-font">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-                <Link className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                <Link className="flex title-font font-medium items-center text-black dark:text-white mb-4 md:mb-0">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                         stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round"
@@ -13,17 +25,20 @@ function NavBar() {
                     <span className="ml-3 text-xl">TuneStation</span>
                 </Link>
                 <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-                    <Link to="/" className="mr-5 hover:text-white cursor-pointer">Home</Link>
-                    <Link to="/search" className="mr-5 hover:text-white cursor-pointer">Search </Link>
-                    <Link className="mr-5 hover:text-white" to="/">My Favs</Link>
+                    <Link to="/" className="mr-5 hover:dark:text-white hover:text-black cursor-pointer">Home</Link>
+                    <Link to="/search" className="mr-5 hover:dark:text-white hover:text-black cursor-pointer">Search </Link>
+                    <Link className="mr-5 hover:dark:text-white hover:text-black" to="/">My Favs</Link>
                 </nav>
-                <a
-                    className="md:inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0 hidden" href="https://codyandersan.github.io" target="_blank" rel="noopener noreferrer">View Profile
-                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                        className="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
+                <div className="mb-3">
+                    <div className="relative inline-block w-10 mr-2 align-middle select-none">
+                        <input type="checkbox" name="toggle" onClick={props.toggleTheme} id="dark_mode" className="checked:bg-green-700 outline-none focus:outline-none right-4 checked:right-0 duration-200 ease-in absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" />
+                        <label htmlFor="dark_mode" className="block h-6 overflow-hidden bg-green-500 rounded-full cursor-pointer">
+                        </label>
+                    </div>
+                    <span className="font-medium text-gray-900 dark:text-white">
+                        Dark Mode
+                    </span>
+                </div>
             </div>
         </header>
     )
