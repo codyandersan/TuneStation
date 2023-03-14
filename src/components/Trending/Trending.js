@@ -7,7 +7,7 @@ function Trending(props) {
         document.title = "Trending Now - TuneStation"
     }, [])
     return (
-        <section className="text-gray-400 bg-deep-900 body-font justify-center">
+        <section className="text-black dark:text-gray-400 bg-slate-100 dark:bg-deep-900 body-font justify-center">
             <div className="container px-5 py-5 mx-auto mb-0 ">
 
                 <Heading title="Trending Now" description="Try searching for these hit releases." />

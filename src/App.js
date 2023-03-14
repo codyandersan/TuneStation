@@ -21,6 +21,20 @@ function App() {
   const [details, setDetails] = useState(null)
   const [alert, setAlert] = useState(null)
 
+  const [theme, setTheme] = useState("")
+
+  const toggleTheme = () => {
+    if (theme === "dark") {
+      setTheme("")
+      showAlert("Light mode has been enabled.")
+    }
+    else {
+      setTheme("dark")
+      showAlert("Dark mode has been enabled.")
+      document.documentElement.classlist.add("dark")
+    }
+  }
+
   const showAlert = (message) => {
     setAlert(message)
     setTimeout(() => {
@@ -37,7 +51,7 @@ function App() {
       />
       <div className='flex flex-col min-h-[100vh] justify-between	w-full'>
         <Router>
-          <NavBar />
+          <NavBar toggleTheme={toggleTheme} />
           <Alert message={alert} />
           <Routes>
 
