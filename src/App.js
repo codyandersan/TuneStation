@@ -1,6 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar'
-import Trending from './components/Trending/Trending'
+import Showcase from './components/Showcase/Showcase'
 import Footer from './components/Footer';
 import Search from './components/Search/Search';
 import Player from './components/Player/Player';
@@ -13,6 +13,8 @@ import {
   Route
 } from "react-router-dom";
 import Alert from './components/Alert';
+import AlbumsShowcase from './components/Showcase/AlbumsShowcase';
+import PlaylistsShowcase from './components/Showcase/PlaylistsShowcase';
 // import Lyrics from './components/Player/Lyrics';
 
 
@@ -20,8 +22,10 @@ function App() {
   const [progress, setProgress] = useState(0) //progress of loading bar
   const [details, setDetails] = useState(null)
   const [alert, setAlert] = useState(null)
+  const [theme, setTheme] = useState("dark")
 
-  const [theme, setTheme] = useState("")
+  const [albumId, setAlbumId] = useState(null)
+  const [playlistId, setPlaylistId] = useState(null)
 
   const toggleTheme = () => {
     if (theme === "dark") {
@@ -31,7 +35,7 @@ function App() {
     else {
       setTheme("dark")
       showAlert("Dark mode has been enabled.")
-      document.documentElement.classlist.add("dark")
+      // document.documentElement.classlist.add("dark")
     }
   }
 
@@ -43,29 +47,35 @@ function App() {
   }
 
   return (
-    <>
-      <LoadingBar
-        color='#ffffff'
-        progress={progress}
-        onLoaderFinished={() => setProgress(0)}
-      />
-      <div className='flex flex-col min-h-[100vh] justify-between	w-full'>
-        <Router>
-          <NavBar toggleTheme={toggleTheme} />
-          <Alert message={alert} />
-          <Routes>
+    <div className={theme} >
+      <div className="bg-light-100 dark:bg-deep-900">
+        <LoadingBar
+          color='#fc3535'
+          progress={progress}
+          onLoaderFinished={() => setProgress(0)}
+        />
+        <div className='flex flex-col min-h-[100vh] justify-between	w-full'>
+          <Router>
+            <NavBar toggleTheme={toggleTheme} theme={theme} />
+            <Alert message={alert} theme={theme} />
+            <Routes>
 
-            <Route exact path="/" element={<Trending setProgress={setProgress} />}> </Route>
-            {/* <Route exact path="/test" element={<Lyrics />}> </Route> */}
-            <Route exact path="/search" element={<Search setProgress={setProgress} setDetails={setDetails} />}> </Route>
+              <Route exact path="/" element={<Showcase setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} setProgress={setProgress} theme={theme} setDetails={setDetails} />}> </Route>
+              
+              <Route exact path="/albums" element={<AlbumsShowcase albumId={albumId} setProgress={setProgress} theme={theme} setDetails={setDetails}/>}> </Route>
 
-            <Route exact path="/listen" element={<Player showAlert={showAlert} setProgress={setProgress} details={details} />}> </Route>
+              <Route exact path="/playlists" element={<PlaylistsShowcase playlistId={playlistId} setProgress={setProgress} theme={theme} setDetails={setDetails}/>}> </Route>
 
-          </Routes>
-          <Footer />
-        </Router>
+              <Route exact path="/search" element={<Search setProgress={setProgress} theme={theme} setDetails={setDetails} />}> </Route>
+
+              <Route exact path="/listen" element={<Player showAlert={showAlert} theme={theme} setProgress={setProgress} details={details} />}> </Route>
+
+            </Routes>
+            <Footer theme={theme} />
+          </Router>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
