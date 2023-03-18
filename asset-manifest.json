@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/TuneStation/static/css/main.b17f1735.css",
-    "main.js": "/TuneStation/static/js/main.fc2f8078.js",
+    "main.css": "/TuneStation/static/css/main.cdc353ac.css",
+    "main.js": "/TuneStation/static/js/main.d43077e8.js",
     "static/js/787.21038b3b.chunk.js": "/TuneStation/static/js/787.21038b3b.chunk.js",
     "index.html": "/TuneStation/index.html",
-    "main.b17f1735.css.map": "/TuneStation/static/css/main.b17f1735.css.map",
-    "main.fc2f8078.js.map": "/TuneStation/static/js/main.fc2f8078.js.map",
+    "main.cdc353ac.css.map": "/TuneStation/static/css/main.cdc353ac.css.map",
+    "main.d43077e8.js.map": "/TuneStation/static/js/main.d43077e8.js.map",
     "787.21038b3b.chunk.js.map": "/TuneStation/static/js/787.21038b3b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b17f1735.css",
-    "static/js/main.fc2f8078.js"
+    "static/css/main.cdc353ac.css",
+    "static/js/main.d43077e8.js"
   ]
 }
