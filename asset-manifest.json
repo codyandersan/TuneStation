@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/TuneStation/static/css/main.cdc353ac.css",
-    "main.js": "/TuneStation/static/js/main.d43077e8.js",
-    "static/js/787.21038b3b.chunk.js": "/TuneStation/static/js/787.21038b3b.chunk.js",
-    "index.html": "/TuneStation/index.html",
-    "main.cdc353ac.css.map": "/TuneStation/static/css/main.cdc353ac.css.map",
-    "main.d43077e8.js.map": "/TuneStation/static/js/main.d43077e8.js.map",
-    "787.21038b3b.chunk.js.map": "/TuneStation/static/js/787.21038b3b.chunk.js.map"
+    "main.css": "/static/css/main.cdc353ac.css",
+    "main.js": "/static/js/main.d43077e8.js",
+    "static/js/787.21038b3b.chunk.js": "/static/js/787.21038b3b.chunk.js",
+    "index.html": "/index.html",
+    "main.cdc353ac.css.map": "/static/css/main.cdc353ac.css.map",
+    "main.d43077e8.js.map": "/static/js/main.d43077e8.js.map",
+    "787.21038b3b.chunk.js.map": "/static/js/787.21038b3b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cdc353ac.css",
