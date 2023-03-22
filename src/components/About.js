@@ -44,8 +44,8 @@ function About(props) {
                         <div className="xl:w-1/3 md:w-1/2 p-4">
                             <div className="border hover:bg-light-200 dark:hover:bg-gray-900 md:h-40 h-auto border-gray-700 border-opacity-75 p-6 rounded-lg">
 
-                                <h2 className="text-lg text-gray-900 dark:text-white font-medium title-font mb-2">Accessible from any Device</h2>
-                                <p className="leading-relaxed text-base">Whether you're on your computer, phone, or tablet, TuneStation can be accessed from any device with an internet connection.</p>
+                                <h2 className="text-lg text-gray-900 dark:text-white font-medium title-font mb-2">Highest Quality Music</h2>
+                                <p className="leading-relaxed text-base">TuneStation allows use to listen your favourite songs at the highest quality (320kbps!).</p>
                             </div>
                         </div>
                         <div className="xl:w-1/3 md:w-1/2 p-4">
