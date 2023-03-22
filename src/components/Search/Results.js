@@ -24,7 +24,7 @@ function Results(props) { // query
         const response = await fetch(uri)
         props.setProgress(70)
         const resp = await response.json();
-        props.setProgress(100)        
+        props.setProgress(100)
 
         let topMatch = resp.data.topQuery.results
         let songs = resp.data.songs.results
@@ -44,7 +44,7 @@ function Results(props) { // query
                     uniqueKeys.add(obj.id);
                 }
             }
-        });                
+        });
         setResults(results)
     }
 
@@ -78,7 +78,7 @@ function Results(props) { // query
                             return <Items key={song.id} song={song} onClick={
                                 async () => {
                                     if (song.type.toUpperCase() == "SONG") {
-                                        let details = await getSongDetails(song.id)                                                                                
+                                        let details = await getSongDetails(song.id)
                                         props.setDetails(details)
                                         navigate("/listen")
                                     }
