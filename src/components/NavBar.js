@@ -32,7 +32,11 @@ function NavBar(props) { //toggleTheme
                             </li>
                             <hr className='dark:border-gray-700 border-light-200' />
                             <li>
-                                <Link className="mr-5 hover:text-white hover:dark:text-black cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')} to="/">My Favs</Link>
+                                <Link to='/about' className="mr-5 hover:text-white hover:dark:text-black cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')} >About</Link>
+                            </li>
+                            <hr className='dark:border-gray-700 border-light-200' />
+                            <li>
+                                <Link to='/terms' className="mr-5 hover:text-white hover:dark:text-black cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')}>Terms of Use</Link>
                             </li>
                             <hr className='dark:border-gray-700 border-light-200' />
                             <li>

@@ -6,7 +6,7 @@ import Search from './components/Search/Search';
 import Player from './components/Player/Player';
 
 import LoadingBar from 'react-top-loading-bar'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   HashRouter as Router,
   Routes,
@@ -15,7 +15,9 @@ import {
 import Alert from './components/Alert';
 import AlbumsShowcase from './components/Showcase/AlbumsShowcase';
 import PlaylistsShowcase from './components/Showcase/PlaylistsShowcase';
-// import Lyrics from './components/Player/Lyrics';
+import About from './components/About';
+import Terms from './components/Terms';
+
 
 
 function App() {
@@ -46,6 +48,10 @@ function App() {
     }, 2000);
   }
 
+  useEffect(() => {
+    showAlert("By using TuneStation, you agree to be bound by the Terms of Use.")
+  }, [])
+  
   return (
     <div className={theme} >
       <div className="bg-light-100 dark:bg-deep-900">
@@ -61,12 +67,16 @@ function App() {
             <Routes>
 
               <Route exact path="/" element={<Showcase setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} setProgress={setProgress} theme={theme} setDetails={setDetails} />}> </Route>
-              
-              <Route exact path="/albums" element={<AlbumsShowcase albumId={albumId} setProgress={setProgress} theme={theme} setDetails={setDetails}/>}> </Route>
 
-              <Route exact path="/playlists" element={<PlaylistsShowcase playlistId={playlistId} setProgress={setProgress} theme={theme} setDetails={setDetails}/>}> </Route>
+              <Route exact path="/about" element={<About theme={theme} />}> </Route>
 
-              <Route exact path="/search" element={<Search setProgress={setProgress} theme={theme} setDetails={setDetails} />}> </Route>
+              <Route exact path="/terms" element={<Terms theme={theme} />}> </Route>
+
+              <Route exact path="/albums" element={<AlbumsShowcase albumId={albumId} setProgress={setProgress} theme={theme} setDetails={setDetails} />}> </Route>
+
+              <Route exact path="/playlists" element={<PlaylistsShowcase playlistId={playlistId} setProgress={setProgress} theme={theme} setDetails={setDetails} />}> </Route>
+
+              <Route exact path="/search" element={<Search setProgress={setProgress} theme={theme} setDetails={setDetails} setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} />}> </Route>
 
               <Route exact path="/listen" element={<Player showAlert={showAlert} theme={theme} setProgress={setProgress} details={details} />}> </Route>
 

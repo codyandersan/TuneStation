@@ -13,7 +13,7 @@ function Search(props) {
             <div className="py-24">
 
                 {!query && <SearchBox setQuery={setQuery} setProgress={props.setProgress} />}
-                {query && <Results query={query} setProgress={props.setProgress} setDetails={props.setDetails} />}
+                {query && <Results query={query} setProgress={props.setProgress} setDetails={props.setDetails} setAlbumId={props.setAlbumId} setPlaylistId={props.setPlaylistId}/>}
 
             </div>
         </div>

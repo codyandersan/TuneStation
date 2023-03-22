@@ -12,7 +12,6 @@ function Results(props) { // query
         document.title = `'${props.query}' - TuneStation`
     }, [])
 
-
     const [results, setResults] = useState([]) //the results obtained from search()
 
     /**
@@ -20,20 +19,47 @@ function Results(props) { // query
      * @param {string} songname 
      */
     const search = async (songname) => {
-
-        console.log(songname)
-        let uri = `https://saavn.me/search/songs?query=${songname.replaceAll(" ", "+")}&page=1&limit=6`
+        let uri = `https://jiosaavn-api-codyandersan.vercel.app/search/all?query=${songname.replaceAll(" ", "+")}&page=1&limit=6`
         props.setProgress(40)
         const response = await fetch(uri)
         props.setProgress(70)
         const resp = await response.json();
-        props.setProgress(100)
-        console.log(resp)
-        let result = resp.data.results
-        console.log(result)
-        setResults(result)
-        console.log(results)
+        props.setProgress(100)        
 
+        let topMatch = resp.data.topQuery.results
+        let songs = resp.data.songs.results
+        let albums = resp.data.albums.results
+        let playlists = resp.data.playlists.results
+
+        let raw_results = [...topMatch, ...songs, ...albums, ...playlists]
+
+        let uniqueKeys = new Set();
+        let results = []
+
+        //Checking for any duplicate results and removing artists that might be included in topMatch
+        raw_results.forEach(obj => {
+            if (obj.type !== "artist") {
+                if (!uniqueKeys.has(obj.id)) {
+                    results.push(obj);
+                    uniqueKeys.add(obj.id);
+                }
+            }
+        });                
+        setResults(results)
+    }
+
+    const getSongDetails = async (songId) => {
+        let uri = `https://jiosaavn-api-codyandersan.vercel.app/songs?id=${songId}`
+
+        props.setProgress(30)
+        let data = await fetch(uri)
+        props.setProgress(50)
+
+        let resp = await data.json()
+        props.setProgress(70)
+
+        props.setProgress(100)
+        return resp.data[0] //As resp.data is actually an array of a single object!
     }
 
 
@@ -49,11 +75,28 @@ function Results(props) { // query
 
                     <div className="flex flex-wrap -m-2" id="results">
                         {results.map((song) => {
-                            return <Items key={song.id} song={song} onClick={() => { props.setDetails(song); navigate("/listen") }} />
+                            return <Items key={song.id} song={song} onClick={
+                                async () => {
+                                    if (song.type.toUpperCase() == "SONG") {
+                                        let details = await getSongDetails(song.id)                                                                                
+                                        props.setDetails(details)
+                                        navigate("/listen")
+                                    }
+                                    else if (song.type.toUpperCase() == "ALBUM") {
+                                        props.setAlbumId(song.id)
+                                        navigate("/albums")
+                                    }
+                                    else if (song.type.toUpperCase() == "PLAYLIST") {
+                                        props.setPlaylistId(song.id)
+                                        navigate("/playlists")
+                                    }
+                                }
+                            } />
 
                         })}
-
                     </div>
+
+
                 </div>
             </section>
         </>

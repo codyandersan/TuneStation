@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         deep: {
-          900: "#2d1b69"
+          900: "#180d3d"
         },
         light: {
           100: "#e6e6e6",
