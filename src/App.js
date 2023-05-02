@@ -51,13 +51,16 @@ function App() {
   useEffect(() => {
     showAlert("By using TuneStation, you agree to be bound by the Terms of Use.")
   }, [])
-  
+
   return (
     <div className={theme} >
       <div className="bg-light-100 dark:bg-deep-900">
+        
         <LoadingBar
-          color='#fc3535'
+          color='#ff0000'
           progress={progress}
+          height={3}
+          shadow={false}
           onLoaderFinished={() => setProgress(0)}
         />
         <div className='flex flex-col min-h-[100vh] justify-between	w-full'>
