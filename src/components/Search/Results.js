@@ -66,10 +66,10 @@ function Results(props) { // query
 
     return (
         <>
-            <section className="text-black dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font">
+            <section className="body-font">
                 <div className="container px-5 py-8 mx-auto" id="blurred_results">
                     <div className="flex flex-col text-center w-full mb-10">
-                        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-black dark:text-white">Search Results: &#10075;<span
+                        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4">Search Results: &#10075;<span
                             id="search_query" className="capitalize">{props.query}</span>&#10076;</h1>
                     </div>
 

@@ -116,25 +116,35 @@ function Showcase(props) {
 
 
     return (
-        <div className={props.theme}>
+        <div>
             {/* <div className="text-4xl text-pink-300 mx-5 mb-2 ">Good evening,</div> */}
-            <section className="text-black dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font justify-center py-5">
-                <div className="container px-5 py-24 mx-auto mb-0 ">
+            <section className=" body-font justify-center py-5">
+                <div className="container px-5 mx-auto mb-0 ">
+                    <div className='my-12'>
 
-                    <Heading title="Trending Now" />
-                    <Songs songs={trending_songs} searchFromId={searchFromId} />
+                        <Heading title="Trending Now" />
+                        <Songs songs={trending_songs} searchFromId={searchFromId} />
+                    </div>
+                    <div className='my-12'>
 
-                    <Heading title="Popular Albums" />
-                    <Albums albums={trending_albums} setAlbumId={props.setAlbumId} />
+                        <Heading title="Popular Albums" />
+                        <Albums albums={trending_albums} setAlbumId={props.setAlbumId} />
+                    </div>
+                    <div className='my-12'>
 
-                    <Heading title="Editorial Picks" />
-                    <Albums albums={top_albums} setAlbumId={props.setAlbumId} />
+                        <Heading title="Editorial Picks" />
+                        <Albums albums={top_albums} setAlbumId={props.setAlbumId} />
+                    </div>
+                    <div className='my-12'>
 
-                    <Heading title="Top Charts" />
-                    <Playlists playlists={charts} setPlaylistId={props.setPlaylistId} />
+                        <Heading title="Top Charts" />
+                        <Playlists playlists={charts} setPlaylistId={props.setPlaylistId} />
+                    </div>
+                    <div className='my-12'>
 
-                    <Heading title="Made for you" />
-                    <Playlists playlists={playlists} setPlaylistId={props.setPlaylistId} />
+                        <Heading title="Made for you" />
+                        <Playlists playlists={playlists} setPlaylistId={props.setPlaylistId} />
+                    </div>
 
 
                 </div>

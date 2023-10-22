@@ -29,15 +29,26 @@ function App() {
   const [albumId, setAlbumId] = useState(null)
   const [playlistId, setPlaylistId] = useState(null)
 
+  // const toggleTheme = () => {
+  //   if (theme === "dark") {
+  //     setTheme("")
+  //     showAlert("Light mode has been enabled.")
+  //   }
+  //   else {
+  //     setTheme("dark")
+  //     showAlert("Dark mode has been enabled.")
+  //     // document.documentElement.classlist.add("dark")
+  //   }
+  // }
   const toggleTheme = () => {
-    if (theme === "dark") {
-      setTheme("")
+    const currentTheme = document.body.getAttribute("data-theme")
+    if (currentTheme === "night") {
+      document.body.setAttribute("data-theme", "emerald")
       showAlert("Light mode has been enabled.")
     }
     else {
-      setTheme("dark")
+      document.body.setAttribute("data-theme", "night")
       showAlert("Dark mode has been enabled.")
-      // document.documentElement.classlist.add("dark")
     }
   }
 
@@ -53,9 +64,9 @@ function App() {
   }, [])
 
   return (
-    <div className={theme} >
-      <div className="bg-light-100 dark:bg-deep-900">
-        
+    <div >
+      <div>
+
         <LoadingBar
           color='#ff0000'
           progress={progress}
@@ -63,28 +74,30 @@ function App() {
           shadow={false}
           onLoaderFinished={() => setProgress(0)}
         />
-        <div className='flex flex-col min-h-[100vh] justify-between	w-full'>
+        <div>
           <Router>
-            <NavBar toggleTheme={toggleTheme} theme={theme} />
-            <Alert message={alert} theme={theme} />
+            <NavBar toggleTheme={toggleTheme} />
+            <Alert message={alert} />
             <Routes>
 
-              <Route exact path="/" element={<Showcase setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} setProgress={setProgress} theme={theme} setDetails={setDetails} />}> </Route>
+              <Route exact path="/" element={<Showcase setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} setProgress={setProgress} setDetails={setDetails} />}> </Route>
 
-              <Route exact path="/about" element={<About theme={theme} />}> </Route>
+              <Route exact path="/about" element={<About />}> </Route>
 
-              <Route exact path="/terms" element={<Terms theme={theme} />}> </Route>
+              <Route exact path="/terms" element={<Terms />}> </Route>
 
-              <Route exact path="/albums" element={<AlbumsShowcase albumId={albumId} setProgress={setProgress} theme={theme} setDetails={setDetails} />}> </Route>
+              <Route exact path="/albums" element={<AlbumsShowcase albumId={albumId} setProgress={setProgress} setDetails={setDetails} />}> </Route>
 
-              <Route exact path="/playlists" element={<PlaylistsShowcase playlistId={playlistId} setProgress={setProgress} theme={theme} setDetails={setDetails} />}> </Route>
+              <Route exact path="/playlists" element={<PlaylistsShowcase playlistId={playlistId} setProgress={setProgress} setDetails={setDetails} />}> </Route>
 
-              <Route exact path="/search" element={<Search setProgress={setProgress} theme={theme} setDetails={setDetails} setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} />}> </Route>
+              <Route exact path="/search" element={<Search setProgress={setProgress} setDetails={setDetails} setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} />}> </Route>
 
-              <Route exact path="/listen" element={<Player showAlert={showAlert} theme={theme} setProgress={setProgress} details={details} />}> </Route>
+              <Route exact path="/listen" element={<Player showAlert={showAlert} setProgress={setProgress} details={details} />}> </Route>
+              
+              <Route exact path="/favs" element={<div>Coming soon!</div>}> </Route>
 
             </Routes>
-            <Footer theme={theme} />
+            <Footer />
           </Router>
         </div>
       </div>

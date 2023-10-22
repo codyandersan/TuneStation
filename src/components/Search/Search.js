@@ -9,8 +9,8 @@ function Search(props) {
 
 
     return (
-        <div className={props.theme}>
-            <div className="py-24">
+        <div>
+            <div className='mt-10 h-[100vh]'>
 
                 {!query && <SearchBox setQuery={setQuery} setProgress={props.setProgress} />}
                 {query && <Results query={query} setProgress={props.setProgress} setDetails={props.setDetails} setAlbumId={props.setAlbumId} setPlaylistId={props.setPlaylistId}/>}

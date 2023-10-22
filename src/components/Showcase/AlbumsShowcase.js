@@ -32,7 +32,7 @@ function AlbumsShowcase(props) { //setDetails (for player), albumId
     return (
         <>            
             {props.albumId && details && <div className={props.theme}>
-                <section className="py-24 text-black dark:text-gray-200 bg-light-100 dark:bg-deep-900 body-font">
+                <section className="py-24  body-font">
                     <div className="container mx-auto flex flex-col px-5 py-5  items-center">
                         <img className="md:w-[15rem] md:h-[15rem] w-5/6 mb-6 object-cover object-center rounded-lg" alt="image" src={details.image[details.image.length - 1].link ? details.image[details.image.length - 1].link : "https://media.gq.com/photos/5ae3925b3fb87856d8a5cdf6/16:9/w_2560%2Cc_limit/Road-Trip-Playlist-GQ-April-2018-042718-3x2.png"} />
                         <div className="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">

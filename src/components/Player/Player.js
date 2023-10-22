@@ -126,15 +126,15 @@ function Player(props) {
         <>
             {/* Show player only if details are recieved */}
             {props.details && <div className={props.theme}>
-                <section className="py-10 text-gray-900 dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font px-4" id="player">
-                    <div className="min-h-screen bg-light-100 dark:bg-deep-900 flex flex-col items-center justify-center">
-                        <div className="max-w-xl bg-light-200 dark:bg-deep-900 rounded-lg shadow-lg overflow-hidden">
+                <section className="py-10  body-font px-4" id="player">
+                    <div className="min-h-screen flex flex-col items-center justify-center">
+                        <div className="max-w-xl  rounded-lg shadow-lg overflow-hidden">
                             <div className="relative">
                                 <img id="thumbnail" className="w-full h-96 object-cover"
                                     src={props.details.image[2]["link"]}
                                 />
                                 <div
-                                    className="absolute p-4 inset-0 flex flex-col justify-end bg-gradient-to-b from-transparent to-gray-900 backdrop backdrop-blur-5 text-white">
+                                    className="absolute p-4 inset-0 flex flex-col justify-end bg-gradient-to-b from-transparent to-gray-900 backdrop backdrop-blur-5 ">
                                     <h3 className="font-bold" id="songName">{props.details.name.replace(/&quot;/g, '"')}</h3>
                                     <p className="w-fit opacity-70" id="artists_marquee">{props.details.primaryArtists}</p>
                                 </div>

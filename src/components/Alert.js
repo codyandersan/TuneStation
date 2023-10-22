@@ -1,18 +1,26 @@
 import React from 'react'
 
 function Alert(props) { //message to display
-    return (
-        <div className={props.theme}>
-            <div className='mt-16 h-[39px] fixed top-0 z-50 dark:bg-deep-900 bg-light-100'>
-                {props.message &&
-                    <div className="bg-green-800 border-gray-900 dark:border-white text-white  border-l-4 p-2" role="alert">
-                        <p>
-                            {props.message}
-                        </p>
+    if (props.message) {
 
-                    </div>}
+        document.getElementById("alertBox").classList.remove("invisible")
+        document.getElementById("alertBox").classList.add("visible")
+
+        setTimeout(() => {
+
+            document.getElementById("alertBox").classList.remove("visible")
+            document.getElementById("alertBox").classList.add("invisible")
+        }, 1000);
+    }
+
+    return (
+        <>
+            <div id='alertBox' className="invisible mt-5 alert alert-info flex-row">
+                <svg xmlns="http://www.w3.org/2000/svg" className="hidden md:block stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span>{props?.message}</span>
             </div>
-        </div>
+        </>
+
     )
 }
 
