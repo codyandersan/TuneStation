@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
-import Items from '../Items';
+import Items from './Items';
 
 function Results(props) { // query
 
@@ -66,14 +66,14 @@ function Results(props) { // query
 
     return (
         <>
-            <section className="body-font">
-                <div className="container px-5 py-8 mx-auto" id="blurred_results">
+            <section className="body-font h-screen mt-2">
+                <div className="container px-0 py-2 mx-auto" id="blurred_results">
                     <div className="flex flex-col text-center w-full mb-10">
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4">Search Results: &#10075;<span
                             id="search_query" className="capitalize">{props.query}</span>&#10076;</h1>
                     </div>
 
-                    <div className="flex flex-wrap -m-2" id="results">
+                    <div className="flex flex-wrap pb-20 md:pb-2" id="results">
                         {results.map((song) => {
                             return <Items key={song.id} song={song} onClick={
                                 async () => {

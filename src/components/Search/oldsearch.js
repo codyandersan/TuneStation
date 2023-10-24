@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
 // import Player from './Player'
 import Results from './Results'
-import SearchBox from './SearchBox'
+import SearchBox from './Search'
 
-function Search(props) {
-    const [query, setQuery] = useState(null)
+function oldsearch(props) {
 
 
 
     return (
         <div>
-            <div className='mt-10 h-[100vh]'>
+            <div className=''>
 
-                {!query && <SearchBox setQuery={setQuery} setProgress={props.setProgress} />}
+                {!query && <SearchBox setQuery={props.setQuery} setProgress={props.setProgress} />}
                 {query && <Results query={query} setProgress={props.setProgress} setDetails={props.setDetails} setAlbumId={props.setAlbumId} setPlaylistId={props.setPlaylistId}/>}
 
             </div>
@@ -20,4 +19,4 @@ function Search(props) {
     )
 }
 
-export default Search
+export default oldsearch

@@ -9,8 +9,8 @@ function About(props) {
 
     return (
         <div >
-            <section className=" body-font ">
-                <div className="container px-5 pt-28 pb-10 mx-auto">
+            <section className="pb-20 md:pb-2 body-font ">
+                <div className="container px-5  pb-10 mx-auto">
                     <div className="flex flex-col text-center w-full mb-20">
                         <h2 className="text-xs tracking-widest font-medium title-font mb-1">USING UNOFFICIAL JIOSAAVN API</h2>
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 ">TuneStation</h1>

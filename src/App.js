@@ -2,7 +2,7 @@ import './App.css';
 import NavBar from './components/NavBar'
 import Showcase from './components/Showcase/Showcase'
 import Footer from './components/Footer';
-import Search from './components/Search/Search';
+import Search from './components/Search';
 import Player from './components/Player/Player';
 
 import LoadingBar from 'react-top-loading-bar'
@@ -17,6 +17,7 @@ import AlbumsShowcase from './components/Showcase/AlbumsShowcase';
 import PlaylistsShowcase from './components/Showcase/PlaylistsShowcase';
 import About from './components/About';
 import Terms from './components/Terms';
+import Results from './components/Results';
 
 
 
@@ -28,6 +29,9 @@ function App() {
 
   const [albumId, setAlbumId] = useState(null)
   const [playlistId, setPlaylistId] = useState(null)
+
+  const [query, setQuery] = useState(null)
+
 
   // const toggleTheme = () => {
   //   if (theme === "dark") {
@@ -90,10 +94,12 @@ function App() {
 
               <Route exact path="/playlists" element={<PlaylistsShowcase playlistId={playlistId} setProgress={setProgress} setDetails={setDetails} />}> </Route>
 
-              <Route exact path="/search" element={<Search setProgress={setProgress} setDetails={setDetails} setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} />}> </Route>
+              <Route exact path="/search" element={<Search setProgress={setProgress} setQuery={setQuery} />}> </Route>
+
+              <Route exact path="/results" element={<Results query={query} setProgress={setProgress} setDetails={setDetails} setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} />}> </Route>
 
               <Route exact path="/listen" element={<Player showAlert={showAlert} setProgress={setProgress} details={details} />}> </Route>
-              
+
               <Route exact path="/favs" element={<div>Coming soon!</div>}> </Route>
 
             </Routes>
