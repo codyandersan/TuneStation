@@ -36,7 +36,7 @@ function Items(props) { //song object, onClick function
     }, [])
     return (
 
-        <div id={props.song.id} className='h-16 md:h-24 my-1 md:my-0'>
+        <div id={props.song.id} className='h-16 md:h-24'>
             {/* onClick: sends song details to Search.js and navigates to /listen */}
             <div onClick={props.onClick} className="relative h-full flex items-center  border rounded-lg hover:cursor-pointer hover:border-secondary hover:ring-2 hover:ring-secondary bg-primary text-primary-content">
                 <img alt="thumbnail"

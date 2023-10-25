@@ -18,6 +18,7 @@ import PlaylistsShowcase from './components/Showcase/PlaylistsShowcase';
 import About from './components/About';
 import Terms from './components/Terms';
 import Results from './components/Results';
+import MiniPlayer from './components/MiniPlayer';
 
 
 
@@ -103,6 +104,7 @@ function App() {
               <Route exact path="/favs" element={<div>Coming soon!</div>}> </Route>
 
             </Routes>
+            <MiniPlayer />
             <Footer />
           </Router>
         </div>

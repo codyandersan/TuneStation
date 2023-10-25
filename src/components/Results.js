@@ -8,6 +8,10 @@ function Results(props) { // query
 
     // Search for the song once the component renders
     useEffect(() => {
+        if (!props.query) {
+            navigate("/search")
+            return
+        }
         search(props.query)
         document.title = `'${props.query}' - TuneStation`
     }, [])
@@ -73,7 +77,7 @@ function Results(props) { // query
                             id="search_query" className="capitalize">{props.query}</span>&#10076;</h1>
                     </div>
 
-                    <div className="flex flex-wrap pb-20 md:pb-2" id="results">
+                    <div className="flex flex-wrap pb-[8rem]  md:pb-2" id="results">
                         {results.map((song) => {
                             return <Items key={song.id} song={song} onClick={
                                 async () => {

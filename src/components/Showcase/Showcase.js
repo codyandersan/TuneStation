@@ -146,7 +146,7 @@ function Showcase(props) {
                             <Heading title="Top Charts" />
                             <Playlists playlists={charts} setPlaylistId={props.setPlaylistId} />
                         </div>
-                        <div className='my-12'>
+                        <div className='mt-12 mb-16'>
 
                             <Heading title="Made for you" />
                             <Playlists playlists={playlists} setPlaylistId={props.setPlaylistId} />
