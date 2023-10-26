@@ -130,7 +130,7 @@ const MiniPlayer = (props) => {
             <div id="endTime" className='badge badge-primary  fixed right-1 md:right-[12.25vw] bottom-[6.2rem] md:bottom-[7.8rem]'>
                 {durationMins}:{durationSecs < 10 ? '0' : ''}{durationSecs}
             </div>
-            <div className="btm-nav bottom-[3.5rem] md:bottom-[4rem] h-[3.5rem] md:w-3/4  m-auto flex-col gap-0 ">
+            <div className="btm-nav bottom-[3.3rem] md:bottom-[4rem] h-[3rem] md:h-[3.5rem] md:w-3/4  m-auto flex-col gap-0 ">
 
                 <audio ref={audioRef} src={props.details.downloadUrl[4]["link"]} />
 
