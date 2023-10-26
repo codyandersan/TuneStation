@@ -7,7 +7,7 @@ function Playlists(props) { //playlists ,setPlaylistId
 
 
     return (
-        <div className="flex pb-20 md:pb-2 flex-row overflow-x-scroll md:overflow-x-clip m-2" >
+        <div className="flex  md:pb-2 flex-row overflow-x-scroll md:overflow-x-clip m-2" >
             {props.playlists.map((playlist) => {
                 return <Card onClick={() => { props.setPlaylistId(playlist.id); navigate("/playlists") }} key={playlist.id} image={playlist.image} name={playlist.name.replace(/&quot;/g, '"')} />
             })}

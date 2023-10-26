@@ -9,7 +9,7 @@ function Terms(props) {
 
     return (
         <div className={props.theme}>
-            <div className="container px-5  pb-20  mx-auto">
+            <div className="container px-5  pb-36  mx-auto">
                 <div className="flex flex-col text-center w-full mb-10">
                     <h1 className='sm:text-3xl text-2xl font-medium title-font mb-4 '>Terms of Use for TuneStation</h1>
                     <p className='text-lg sm:text-xl '>Welcome to TuneStation, an online music streaming and downloading platform built for the sole purpose of personal use and learning. By accessing or using TuneStation, you agree to be bound by these Terms of Use. If you do not agree to these Terms of Use, please <b>do not</b> use TuneStation.</p>

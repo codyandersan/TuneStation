@@ -84,7 +84,7 @@ function Results(props) { // query
                                     if (song.type.toUpperCase() == "SONG") {
                                         let details = await getSongDetails(song.id)
                                         props.setDetails(details)
-                                        navigate("/listen")
+                                        // navigate("/listen")
                                     }
                                     else if (song.type.toUpperCase() == "ALBUM") {
                                         props.setAlbumId(song.id)

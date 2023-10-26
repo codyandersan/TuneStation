@@ -4,7 +4,7 @@ function Card(props) { // name, img, key (id), onClick as props
     return (
         <div className=" p-4 pt-0  w-max" onClick={props.onClick}>
             <div className=" w-[14rem] flex flex-col items-center text-center">
-                <img className="hover:brightness-50 flex-shrink-0 rounded-lg  h-40 w-full object-cover object-center mb-4"
+                <img className="hover:brightness-50 flex-shrink-0 rounded-lg  h-36 w-full object-cover object-center mb-4"
                     src={props.image} />
 
                 <button
@@ -20,7 +20,7 @@ function Card(props) { // name, img, key (id), onClick as props
                 </button>
 
                 <div className="w-full">
-                    <h2 className="title-font font-medium text-lg text-clip">{props.name.length > 26 ? props.name.substring(0, 27) + "..." : props.name}</h2>
+                    <h2 className="title-font font-medium text-lg text-clip">{props.name.length > 23 ? props.name.substring(0, 23) + "..." : props.name}</h2>
 
                 </div>
             </div>

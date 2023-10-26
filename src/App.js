@@ -24,7 +24,67 @@ import MiniPlayer from './components/MiniPlayer';
 
 function App() {
   const [progress, setProgress] = useState(0) //progress of loading bar
-  const [details, setDetails] = useState(null)
+  const [details, setDetails] = useState({
+    
+    id: "aRZbUYD7",
+    name: "Tum Hi Ho",
+    type: "dummy",
+    album: {
+      id: "1139549",
+      name: "Aashiqui 2",
+      url: "https://www.jiosaavn.com/album/aashiqui-2/-iNdCmFNV9o_"
+    },
+    year: "2013",
+    releaseDate: "2013-04-04",
+    duration: "262",
+    label: "",
+    primaryArtists: "Arijit Singh",
+    primaryArtistsId: "459320",
+    featuredArtists: "",
+    featuredArtistsId: "",
+    explicitContent: 0,
+    playCount: "250886421",
+    language: "hindi",
+    hasLyrics: "true",
+    url: "https://www.jiosaavn.com/song/tum-hi-ho/EToxUyFpcwQ",
+    copyright: "©  2013 ",
+    image: [
+      {
+        quality: "50x50",
+        link: "https://c.saavncdn.com/430/Aashiqui-2-Hindi-2013-50x50.jpg"
+      },
+      {
+        quality: "150x150",
+        link: "https://c.saavncdn.com/430/Aashiqui-2-Hindi-2013-150x150.jpg"
+      },
+      {
+        quality: "500x500",
+        link: "https://c.saavncdn.com/430/Aashiqui-2-Hindi-2013-500x500.jpg"
+      }
+    ],
+    downloadUrl: [
+      {
+        quality: "12kbps",
+        link: "https://aac.saavncdn.com/430/5c5ea5cc00e3bff45616013226f376fe_12.mp4"
+      },
+      {
+        quality: "48kbps",
+        link: "https://aac.saavncdn.com/430/5c5ea5cc00e3bff45616013226f376fe_48.mp4"
+      },
+      {
+        quality: "96kbps",
+        link: "https://aac.saavncdn.com/430/5c5ea5cc00e3bff45616013226f376fe_96.mp4"
+      },
+      {
+        quality: "160kbps",
+        link: "https://aac.saavncdn.com/430/5c5ea5cc00e3bff45616013226f376fe_160.mp4"
+      },
+      {
+        quality: "320kbps",
+        link: "https://aac.saavncdn.com/430/5c5ea5cc00e3bff45616013226f376fe_320.mp4"
+      }
+    ]
+  })
   const [alert, setAlert] = useState(null)
   const [theme, setTheme] = useState("dark")
 
@@ -64,9 +124,6 @@ function App() {
     }, 2000);
   }
 
-  useEffect(() => {
-    showAlert("By using TuneStation, you agree to be bound by the Terms of Use.")
-  }, [])
 
   return (
     <div >
@@ -85,7 +142,7 @@ function App() {
             <Alert message={alert} />
             <Routes>
 
-              <Route exact path="/" element={<Showcase setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} setProgress={setProgress} setDetails={setDetails} />}> </Route>
+              <Route exact path="/" element={<Showcase setAlbumId={setAlbumId} setPlaylistId={setPlaylistId} setProgress={setProgress} setDetails={setDetails} details={details} />}> </Route>
 
               <Route exact path="/about" element={<About />}> </Route>
 
@@ -104,7 +161,8 @@ function App() {
               <Route exact path="/favs" element={<div>Coming soon!</div>}> </Route>
 
             </Routes>
-            <MiniPlayer />
+            {/* mount MiniPlayer only if the dummy details by Showcase are set */}
+            {details && <MiniPlayer details={details} showAlert={showAlert} setProgress={setProgress} />}
             <Footer />
           </Router>
         </div>

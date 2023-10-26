@@ -31,8 +31,8 @@ function AlbumsShowcase(props) { //setDetails (for player), albumId
     }, [])
     return (
         <>            
-            {props.albumId && details && <div className={props.theme}>
-                <section className="pb-20 md:pb-2">
+            {props.albumId && details && <div >
+                <section className="pb-32 md:pb-32">
                     <div className="container mx-auto flex flex-col px-5 items-center">
                         <img className="md:w-[15rem] md:h-[15rem] w-5/6 mb-6 object-cover object-center rounded-lg" alt="image" src={details.image[details.image.length - 1].link ? details.image[details.image.length - 1].link : "https://media.gq.com/photos/5ae3925b3fb87856d8a5cdf6/16:9/w_2560%2Cc_limit/Road-Trip-Playlist-GQ-April-2018-042718-3x2.png"} />
                         <div className="w-full md:w-2/3 flex flex-col mb-10 items-center text-center">
@@ -43,7 +43,7 @@ function AlbumsShowcase(props) { //setDetails (for player), albumId
                         <div className="flex flex-wrap -m-2" id="results">
 
                             {details.songs.map((song) => {
-                                return <Items key={song.id} song={song} onClick={() => { props.setDetails(song); navigate("/listen") }} />
+                                return <Items key={song.id} song={song} onClick={() => { props.setDetails(song); }} />
                             })}
                         </div>
                     </div>

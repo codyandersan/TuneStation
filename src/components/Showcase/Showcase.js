@@ -1,6 +1,6 @@
 
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from "react-router-dom";
 
 import Heading from './Heading'
@@ -20,6 +20,8 @@ function Showcase(props) {
 
     const [playlists, setPlaylists] = useState([])
     const [charts, setCharts] = useState([])
+
+    const isFirstRender = useRef(true)
 
     const searchFromId = async (id) => {
         let raw_resp = await fetch(`https://jiosaavn-api-codyandersan.vercel.app/songs?id=${id}`)
@@ -55,6 +57,7 @@ function Showcase(props) {
 
         //Charts:
         setCharts(getShowcase(resp["data"]["charts"], "playlist"))
+
 
         props.setProgress(100)
     }
@@ -113,6 +116,7 @@ function Showcase(props) {
         document.body.scrollTop = document.documentElement.scrollTop = 0; //scroll to top of page
         document.title = "Popular Now - TuneStation"
         setHomepageData()
+
     }, [])
 
 
@@ -123,34 +127,35 @@ function Showcase(props) {
             <section className=" body-font justify-center pb-5  ">
                 {(charts.length > 0) &&
                     <div className="container px-5 mx-auto mb-0 ">
-                        <div className='mb-12 mt-2'>
+                        {(trending_songs.length > 0) && <div className='mb-12 mt-2'>
 
                             <Heading title="Trending Now" />
 
                             <Songs songs={trending_songs} searchFromId={searchFromId} />
 
+                        </div>}
 
-                        </div>
-                        <div className='my-12'>
+                        {(trending_albums.length > 0) && <div className='my-12'>
 
                             <Heading title="Popular Albums" />
                             <Albums albums={trending_albums} setAlbumId={props.setAlbumId} />
-                        </div>
-                        <div className='my-12'>
+                        </div>}
+
+                        {(top_albums.length > 0) && <div className='my-12'>
 
                             <Heading title="Editorial Picks" />
                             <Albums albums={top_albums} setAlbumId={props.setAlbumId} />
-                        </div>
-                        <div className='my-12'>
+                        </div>}
+                        {(charts.length > 0) && <div className='my-12'>
 
                             <Heading title="Top Charts" />
                             <Playlists playlists={charts} setPlaylistId={props.setPlaylistId} />
-                        </div>
-                        <div className='mt-12 mb-16'>
+                        </div>}
+                        {(playlists.length > 0) && <div className='mt-12 mb-20 md:mb-28'>
 
                             <Heading title="Made for you" />
                             <Playlists playlists={playlists} setPlaylistId={props.setPlaylistId} />
-                        </div>
+                        </div>}
 
 
                     </div>

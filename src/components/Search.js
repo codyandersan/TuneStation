@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 
 function Search(props) {
-    
+
     const navigate = useNavigate(); //for navigating to /results
 
     const showResults = () => {
@@ -13,19 +13,30 @@ function Search(props) {
     }
 
     //Sets loading bar to 100 when the page fully renders:
-    useEffect(() => {        
+    useEffect(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0; //scroll to top of page
+
         props.setProgress(0)
         props.setProgress(100)
         document.title = "Search - TuneStation"
-    }, []) 
-    
+
+
+        const queryBox = document.querySelector("#query");
+        queryBox.addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                showResults();
+            }
+        });
+
+    }, [])
+
     return (
         <section className="body-font min-w-screen h-screen mt-2">
             <div className="container px-5 pb-5 mx-auto">
                 <div className="text-center mb-5">
                     <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4">Search for anything!
                     </h1>
-                    </div>
+                </div>
                 <div className="flex mt-6 justify-center">
                     <div className="w-16 h-1 rounded-full bg-secondary inline-flex"></div>
                 </div>
