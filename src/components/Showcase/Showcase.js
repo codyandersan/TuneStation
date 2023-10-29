@@ -27,7 +27,6 @@ function Showcase(props) {
         let raw_resp = await fetch(`https://jiosaavn-api-codyandersan.vercel.app/songs?id=${id}`)
         let resp = await raw_resp.json()
         props.setDetails(resp.data[0])
-        navigate("/listen")
     }
 
     /**

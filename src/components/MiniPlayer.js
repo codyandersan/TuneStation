@@ -23,7 +23,7 @@ const MiniPlayer = (props) => {
      * Starts downloading the song from link sent in props.
      */
     const downloadSong = async () => {
-        
+
 
         document.getElementById('my_modal_3').showModal()
 
@@ -64,20 +64,46 @@ const MiniPlayer = (props) => {
                 audio.play(); //autoplay the song if it's not dummy
                 setIsPlaying(true)
             }
-        });
 
-        audio.addEventListener('timeupdate', () => {
+            if ('mediaSession' in navigator) {
 
-            setCurrentTime(audio.currentTime);
-        });
+                navigator.mediaSession.metadata = new MediaMetadata({
+                    title: props.details.name.replace(/&quot;/g, '"'),
+                    artist: props.details.primaryArtists,
+                    album: 'TuneStation',
+                    artwork: [
+                        { src: props.details.image[2]["link"], sizes: '512x512', type: 'image/png' },
+                    ]
+                });
 
-        audio.addEventListener('ended', () => {
-            setIsPlaying(false);
-            setCurrentTime(0);
-            audio.currentTime = 0;
-        });
+                navigator.mediaSession.setActionHandler('play', function () {
+                    audio.play();
+                    setIsPlaying(true);
+                });
+                navigator.mediaSession.setActionHandler('pause', function () {
+                    audio.pause();
+                    setIsPlaying(false);
+                });
+                navigator.mediaSession.setActionHandler('seekbackward', function () {
+                    audio.currentTime = Math.max(audio.currentTime - 10, 0);
+                });
+                navigator.mediaSession.setActionHandler('seekforward', function () {
+                    audio.currentTime = Math.min(audio.currentTime + 10, audio.duration);
+                });
+            }
+
+            audio.addEventListener('timeupdate', () => {
+
+                setCurrentTime(audio.currentTime);
+            });
+
+            audio.addEventListener('ended', () => {
+                setIsPlaying(false);
+                setCurrentTime(0);
+                audio.currentTime = 0;
+            });
+        })
     }
-
     useEffect(() => {
 
         loadSong();
