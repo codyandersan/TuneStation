@@ -1,4 +1,6 @@
 # TuneStation
+> This project was created strictly for educational purposes to explore media streaming mechanics and API handling. I was 14 when I built this.
+
 A client-side audio streaming SPA (Single Page Application) built with React. This project serves as a frontend engineering case study to explore continuous media playback, complex asynchronous data fetching, and responsive UI design.
 ## Tech Stack
  * **React 18** with React Router v6 for dynamic, client-side routing.
